@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import '../css/Form.css'
 
+
 function Form() {
+
     return (
         <section className="sign-in-content">
             <FontAwesomeIcon icon={faCircleUser} />
@@ -21,7 +23,7 @@ function Form() {
                     <input type="checkbox" id="remember-me" />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
-                <button class="sign-in-button">Sign In</button>
+                <button type="submit" className="sign-in-button">Sign In</button>
             </form>
         </section>
     )

@@ -25,7 +25,6 @@ function Item() {
             "description": "We use top of the line encryption to make sure your data and money is always safe."
         }
     ];
-
     return (
         <div className="feature-list">
             {featuresItem.map(item => (
