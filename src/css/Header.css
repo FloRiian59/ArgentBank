@@ -12,6 +12,11 @@
   white-space: nowrap !important; /* 3 */
 }
 
+.connected {
+  display: flex;
+  gap: 15px;
+}
+
 .main-nav {
   display: flex;
   justify-content: space-between;

@@ -3,9 +3,12 @@ import { authReducer } from './reducers/authReducer'
 
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
 })
 
-export const store = configureStore({
+const store = configureStore({
     reducer: rootReducer,
-});
+    devTools: true
+})
+
+export default store

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 function CardData() {
     const accountCardData = [
@@ -25,7 +25,7 @@ function CardData() {
         <div className="feature-list">
 
         </div>
-    );
+    )
 }
 
-export default CardData;
+export default CardData
