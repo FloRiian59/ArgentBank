@@ -17,7 +17,6 @@ export const authReducer = (state = initialState, action) => {
                 token: action.payload,
                 error: null
             }
-
         case LOGIN_FAIL: {
             return {
                 ...state,
