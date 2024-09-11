@@ -10,6 +10,7 @@ import { logout } from "../redux/actions/authActions"
 function Header() {
 
   const isAuthenticated = useSelector((state) => state.auth.token)
+  const firstname = useSelector((state) => state.user.userData.firstname)
 
   const dispatch = useDispatch()
 
@@ -31,7 +32,7 @@ function Header() {
             <div className="connected">
               <Link className="main-nav-item" to='/profile'>
                 <FontAwesomeIcon icon={faCircleUser} />
-                Tony
+                {firstname}
               </Link>
               <Link className="main-nav-item" to='/' onClick={handleLogout}>
                 <FontAwesomeIcon icon={faRightFromBracket} />
