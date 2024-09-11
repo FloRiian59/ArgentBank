@@ -9,7 +9,7 @@ export const userProfile = (userData) => {
     }
 }
 
-export const updateUserName = (username) => {
+export const updateUsername = (username) => {
     return {
         type: EDIT_USER_NAME,
         payload: username,

@@ -11,7 +11,7 @@ export const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 status: "SUCCESS",
-                UserData: action.payload,
+                userData: action.payload,
             }
         case EDIT_USER_NAME: {
             return {
