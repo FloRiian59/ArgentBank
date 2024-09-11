@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux"
 
 export const loginUser = async (email, password) => {
     try {
@@ -22,24 +21,23 @@ export const loginUser = async (email, password) => {
 
 export const fetchUserData = async (token) => {
     try {
-        const response = await fetch("http://localhost:3001/api/v1/user/profile", {
-            method: "POST",
+        const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
             },
         })
-        if (response.ok) {
-            const data = await response.json()
-            const userData = {
-                email: data.body.email,
-                password: data.body.password,
-                firstName: data.body.firstName,
-                lastName: data.body.lastName,
-                userName: data.body.userName,
-            }
-        } else {
-            console.log("Erreur lors de la récupération des informations utilisateurs")
+        if (!response.ok) {
+            throw new Error("Erreur lors de la récupération des informations utilisateur")
+        }
+        const data = await response.json()
+        return {
+            id: data.body.id,
+            email: data.body.email,
+            firstname: data.body.firstName,
+            lastname: data.body.lastName,
+            userame: data.body.userName
         }
     } catch (error) {
         console.error("FetchData:", error)
@@ -47,23 +45,23 @@ export const fetchUserData = async (token) => {
     }
 }
 
-export const updateUsername = async (token) => {
+export const updateUserProfile = async (token, userName) => {
     try {
-        const response = await fetch("http://localhost:3001/api/v1/user/profile", {
-            method: "PUT",
+        const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+            method: 'PUT',
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
             },
-            body: JSON.stringify()
+            body: JSON.stringify({ userName }),
         })
-        if (response.ok) {
-            const data = await response.json()
-        } else {
-            console.log("Erreur lors de la modification des informations utilisateurs")
+        if (!response.ok) {
+            throw new Error("Invalid fields")
         }
+        const data = await response.json()
+        return data.body.userName
     } catch (error) {
-        console.error("UpdateData:", error)
+        console.error("Erreur lors de la récupération des informations utilisateur", error)
         throw error
     }
 }
