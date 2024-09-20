@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import Logo from "../assets/images/argentBankLogo.png"
+import Logo from "../assets/images/argentBankLogo.webp"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 import '../css/Header.css'
@@ -10,7 +10,7 @@ import { logout } from "../redux/actions/authActions"
 function Header() {
 
   const isAuthenticated = useSelector((state) => state.auth.token)
-  const firstname = useSelector((state) => state.user.userData.firstname)
+  const username = useSelector((state) => state.user.userData.username)
 
   const dispatch = useDispatch()
 
@@ -32,7 +32,7 @@ function Header() {
             <div className="connected">
               <Link className="main-nav-item" to='/profile'>
                 <FontAwesomeIcon icon={faCircleUser} />
-                {firstname}
+                {username}
               </Link>
               <Link className="main-nav-item" to='/' onClick={handleLogout}>
                 <FontAwesomeIcon icon={faRightFromBracket} />

@@ -14,6 +14,7 @@ function Profile() {
             const getUserData = async () => {
                 try {
                     const userData = await fetchUserData(token)
+                    console.log(userData)
                     dispatch(userProfile(userData))
                 } catch (error) {
                     console.error("Erreur lors de la récupération des informations utilisateur", error)

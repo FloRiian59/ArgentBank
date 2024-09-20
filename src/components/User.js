@@ -16,7 +16,7 @@ function User() {
         event.preventDefault();
         try {
             const updatedData = await updateUserProfile(token, userName)
-            dispatch(updateUsername(updatedData.userName))
+            dispatch(updateUsername(updatedData))
             setDisplay(!display)
         } catch (error) {
             console.error("Failed to update username:", error)

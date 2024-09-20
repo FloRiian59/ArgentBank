@@ -37,7 +37,7 @@ export const fetchUserData = async (token) => {
             email: data.body.email,
             firstname: data.body.firstName,
             lastname: data.body.lastName,
-            userame: data.body.userName
+            username: data.body.userName
         }
     } catch (error) {
         console.error("FetchData:", error)
